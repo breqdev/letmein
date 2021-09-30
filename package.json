@@ -1,29 +1,30 @@
 {
-  "name": "letmein",
-  "version": "0.1.0",
-  "description": "Programatically unlock your door at Northeastern.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js --ignore cookies.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Breq16/letmein.git"
-  },
-  "author": "Brooke Chalmers",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Breq16/letmein/issues"
-  },
-  "homepage": "https://github.com/Breq16/letmein#readme",
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "koa": "^2.13.3",
-    "puppeteer": "^10.4.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.13"
-  }
+    "name": "letmein",
+    "version": "0.1.0",
+    "description": "Programatically unlock your door at Northeastern.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js",
+        "dev": "nodemon index.js --ignore cookies.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Breq16/letmein.git"
+    },
+    "author": "Brooke Chalmers",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Breq16/letmein/issues"
+    },
+    "homepage": "https://github.com/Breq16/letmein#readme",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "koa": "^2.13.3",
+        "puppeteer": "^10.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.13",
+        "prettier": "^2.4.1"
+    }
 }

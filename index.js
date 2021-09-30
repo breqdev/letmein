@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 const fs = require("fs").promises
 
@@ -6,7 +6,6 @@ const Koa = require("koa")
 const app = new Koa()
 
 const puppeteer = require("puppeteer")
-
 
 const loadCookies = async () => {
     try {
@@ -17,16 +16,14 @@ const loadCookies = async () => {
     }
 }
 
-
 const saveDuoCookies = async (page) => {
     const client = await page.target().createCDPSession()
     const cookies = (await client.send("Network.getAllCookies")).cookies.filter(
-        c => (c.domain === "api-6daaf5ea.duosecurity.com")
+        (c) => c.domain === "api-6daaf5ea.duosecurity.com"
     )
 
     await fs.writeFile("./cookies.json", JSON.stringify(cookies))
 }
-
 
 app.use(async (ctx, next) => {
     if (ctx.path !== "/") {
@@ -35,7 +32,6 @@ app.use(async (ctx, next) => {
         await next()
     }
 })
-
 
 app.use(async (ctx, next) => {
     ctx.browser = await puppeteer.launch({ headless: false })
@@ -53,7 +49,7 @@ app.use(async (ctx, next) => {
     await sso.goto("https://my.northeastern.edu/group/student/services-links")
 
     await sso.waitForNavigation({
-        waitUntil: "networkidle0"
+        waitUntil: "networkidle0",
     })
 
     // Type in the username and password
@@ -69,7 +65,7 @@ app.use(async (ctx, next) => {
     await submit.click()
 
     await sso.waitForSelector("#layout-column_column-1", {
-        timeout: 0
+        timeout: 0,
     })
 
     await saveDuoCookies(sso)
@@ -79,16 +75,15 @@ app.use(async (ctx, next) => {
     // await sso.close()
 })
 
-
 app.use(async (ctx, next) => {
     const hcc = await ctx.browser.newPage()
 
     await hcc.goto("https://huskycardcenter.neu.edu/student/welcome.php", {
-        waitUntil: "networkidle0"
+        waitUntil: "networkidle0",
     })
 
     await hcc.goto("https://huskycardcenter.neu.edu/student/openmydoor.php", {
-        waitUntil: "networkidle0"
+        waitUntil: "networkidle0",
     })
 
     const submit = await hcc.$(".mobileButton")
@@ -100,7 +95,7 @@ app.use(async (ctx, next) => {
     // await hcc.close()
 })
 
-app.use(async ctx => {
+app.use(async (ctx) => {
     ctx.body = "Hello World"
 })
 
