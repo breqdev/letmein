@@ -10,14 +10,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Breq16/letmein.git"
+        "url": "git+https://github.com/breqdev/letmein.git"
     },
     "author": "Brooke Chalmers",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Breq16/letmein/issues"
+        "url": "https://github.com/breqdev/letmein/issues"
     },
-    "homepage": "https://github.com/Breq16/letmein#readme",
+    "homepage": "https://github.com/breqdev/letmein#readme",
     "dependencies": {
         "dotenv": "^10.0.0",
         "koa": "^2.13.3",
